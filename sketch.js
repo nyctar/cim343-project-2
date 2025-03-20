@@ -142,16 +142,17 @@ function compareDistance(a, b) {
 
 function draw() {
     if (startBool) {
-        background(200);
 
         canvas.style("display", "block");
 
         orbitControl();
 
         spectrum = fft.analyze();
-
+        
         let vol = fft.getEnergy(20, 140);
 
+        background(vol);
+        
         //color
         let totalObj = centerDist.length;
         for (let i = 0; i < totalObj; i++) {
@@ -220,6 +221,7 @@ function resetSong() {
     song.jump(0);
     if(!song.isPlaying()) {
         song.play();
+        playButton.html("Pause");  // Change button text to 'Pause'
     }
 }
 

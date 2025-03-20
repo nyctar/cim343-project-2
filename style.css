@@ -1,5 +1,5 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -23,8 +23,10 @@ body {
 
 #controlsContainer {
   display: none;
+  justify-content: center;
+  position: absolute;
   width: 80%;
-  max-width: 600px;
+  max-width: 300px;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -37,32 +39,35 @@ body {
 }
 
 label {
-  align-items: center;
   font-size: 14px;
-  margin-bottom: 8px;
-  display: inline-block;
   color: #333;
-  width: 40%;
-  padding: 0px 13px 0px 10px;
   text-align: right;
-  margin-right: 10px;
 }
 
-input[type="range"], input[type="file"] {
-  width: 50%;
-  margin-bottom: 15px;
+#startingColor, #endingColor, #startingColorPicker, #endingColorPicker{
+  padding-right: 20px;
+  border: none;
+  background-color: #fff;
+}
+
+#startingColor, #endingColor {
+  padding-left: 10px;
+  padding-bottom: 15px;
+}
+
+input {
+  width: 100%;
   border-radius: 5px;
   border: 1px solid #ddd;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
 }
 
 input[type="file"] {
-  width: 80%;
+  width: 87%;
   padding: 8px;
   margin: 8px;
-  border: 1px solid #333;
-  border-radius: 5px;
-  border-color: #333;
+  border: none;
 }
 
 button {
@@ -83,25 +88,35 @@ button:hover {
   background-color: #610095;
 }
 
-/* Volume Slider Styling */
-#volumeSlider {
-  width: 100%;
+#fileContainer {
+  border: 1px solid #333;
+  border-radius: 5px;
+  border-color: #333;
+  padding: 15px 0px 0px 0px;
+  margin: 15px 15px 15px 15px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  #controlsContainer {
-    width: 90%;
-    padding: 15px;
-  }
+#colorContainer {
+  display: flex;
+  border: 1px solid #333;
+  border-radius: 5px;
+  border-color: #333;
+  padding: 15px 0px 0px 0px;
+  margin: 15px;
+}
 
-  #startButton {
-    font-size: 16px;
-    padding: 12px 25px;
-  }
+#musicContainer {
+  border: 1px solid #333;
+  border-radius: 5px;
+  border-color: #333;
+  padding: 15px 15px 5px 15px;
+  margin: 15px;
+}
 
-  button {
-    font-size: 14px;
-    padding: 8px 15px;
-  }
+#shapeContainer {
+  border: 1px solid #333;
+  border-radius: 5px;
+  border-color: #333;
+  padding: 15px 15px 0px 15px;
+  margin: 15px;
 }
