@@ -1,4 +1,4 @@
-let size = 70;
+let size = 120;
 let num = 10;
 let min = 150;
 let grid = [];
@@ -6,7 +6,7 @@ let centerDist = [];
 
 // modifiers
 let pulseIntensity = 0.75;
-let StartingColor;
+let startingColor;
 let EndingColor;
 let gradientIntensity = 0.8;
 let sizeModifier = 1.3;
@@ -77,11 +77,11 @@ function setup() {
     });
 
     startingColorPicker.input(function() {
-        StartingColor = color(startingColorPicker.value());
+        startingColor = color(startingColorPicker.value());
     });
 
     endingColorPicker.input(function() {
-        EndingColor = color(endingColorPicker.value());
+        endingColor = color(endingColorPicker.value());
     });
 
     volumeSlider.input(function() {
@@ -98,8 +98,8 @@ function setup() {
     resetButton.mousePressed(resetSong);
     playButton.mousePressed(togglePlayback);
 
-    StartingColor = color(255, 0, 0);
-    EndingColor = color(0, 0, 255);  
+    startingColor = color(255, 0, 0);
+    endingColor = color(0, 0, 255);  
 
     let radius = num * size / 2;
 
@@ -151,7 +151,7 @@ function draw() {
         
         let vol = fft.getEnergy(20, 140);
 
-        background(vol);
+        background(lerpColor(startingColor, endingColor, vol / 255));
         
         //color
         let totalObj = centerDist.length;
@@ -172,6 +172,9 @@ function draw() {
         angleX += rotationSpeedX;
         angleY += rotationSpeedY;
 
+        ambientLight(150);
+        pointLight(255, 255, 255, 0, 0, 200);
+
         for (let i = 0; i < totalObj; i++) {
             let pos = centerDist[i];
             
@@ -186,7 +189,7 @@ function draw() {
             let amplifiedDistance = pow(normalizedDistance, gradientIntensity);
 
             // interpolate color based on distance
-            let interColor = lerpColor(StartingColor, EndingColor, amplifiedDistance);
+            let interColor = lerpColor(startingColor, endingColor, amplifiedDistance);
 
             // fill the sphere if it meets the intensity threshold
             if (grid[pos.i][pos.j][pos.k] > min) {
@@ -201,6 +204,7 @@ function draw() {
 
             push();
             translate(x, y, z);
+            texture
             sphere(sphereSize);
             pop();
         }

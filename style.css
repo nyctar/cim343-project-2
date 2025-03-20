@@ -64,8 +64,9 @@ input {
 }
 
 input[type="file"] {
-  width: 87%;
-  padding: 8px;
+  width: 80%;
+  align-items: center;
+  padding: 10px 0px 0px 30px;
   margin: 8px;
   border: none;
 }
