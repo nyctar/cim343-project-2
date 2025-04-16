@@ -53,7 +53,7 @@ function setup() {
     canvas.style("display", "none");
     fft = new p5.FFT();
 
-    //hide controls at the start
+    // hide controls at the start
     document.getElementById("controlsContainer").style.display = "none";
 
     // UI functionality
@@ -153,7 +153,7 @@ function draw() {
 
         background(lerpColor(startingColor, endingColor, vol / 255));
         
-        //color
+        // color
         let totalObj = centerDist.length;
         for (let i = 0; i < totalObj; i++) {
             let pos = centerDist[i];
